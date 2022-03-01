@@ -1,0 +1,89 @@
+body{
+    background-color: rgb(221, 237, 252);
+}
+
+.details{
+    box-sizing: border-box;
+    border: 3px solid rgb(0, 0, 0);
+    border-radius: 5px ;
+    font-size: large;
+    /* background-color: rgb(37, 24, 24); */
+    background: linear-gradient(55deg, #c3cdff 0%, #dafafa 51%, #faf7e9 85%);
+    color: #140e1a;
+    font-size: 25px;
+    font-family: 'Shizuru', cursive;
+}
+
+.tit{
+    text-decoration: none;
+    font-size: 23px;
+
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  height: 3000px; /* Used to enable scrolling */
+  background: linear-gradient(55deg, #878787 0%, #ffffff 51%, #ababab 85%);
+  clip: auto;
+  font-family: 'PT Sans Narrow', sans-serif;
+}
+.container{
+  padding: 25px;
+  font-family: 'PT Sans Narrow', sans-serif;
+}
+
+.mybt{
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+#img {
+  -webkit-filter: blur(4px); /* Safari 6.0 - 9.0 */
+  filter: blur(4px);
+  opacity: 0.8;
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 60px;
+  border: #fff1e1;
+  border-style: dotted;
+  border-radius: 8px;
+  text-shadow: 2px 2px 5px blue;
+
+}
+.contan {
+  position: relative;
+  text-align: center;
+  color: rgb(255, 255, 255);
+}
+
+.disk{
+  width: 342px;
+  height: 300px;
+  float: right;
+}
+
+#a{
+  text-decoration: none;
+  color: white;
+}
+#a1{
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+}
+
+#more {display: none;}
+#more1 {display: none;}
+#more2 {display: none;}
+#more3 {display: none;}
+#more4 {display: none;}
+#more5 {display: none;}
+#more6 {display: none;}
+
+
+/* 
+ */

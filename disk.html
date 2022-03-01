@@ -1,0 +1,1153 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow&display=swap" rel="stylesheet">
+
+
+    <title>DSAlg</title>
+</head>
+
+<body">
+
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top px-5">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Disk Scheduling ALGO</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+
+                    <li class="nav-item mybt">
+                        <a class="nav-link active" aria-current="page" href="#"><svg xmlns="http://www.w3.org/2000/svg"
+                                width="16" height="16" fill="currentColor" class="bi bi-house-door" viewBox="0 0 16 16">
+                                <path
+                                    d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5z" />
+                            </svg></a>
+                    </li>
+
+                    <li class="nav-item mybt">
+                        <a class="nav-link" href="Simulate.html">Simulate <svg xmlns="http://www.w3.org/2000/svg"
+                                width="16" height="16" fill="currentColor" class="bi bi-calculator" viewBox="0 0 16 16">
+                                <path
+                                    d="M12 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h8zM4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4z" />
+                                <path
+                                    d="M4 2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5v-2zm0 4a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm3-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm3-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-4z" />
+                            </svg></a>
+                    </li>
+                    <li class="nav-item mybt">
+                        <a class="nav-link" href="about.html">About <svg xmlns="http://www.w3.org/2000/svg" width="16"
+                                height="16" fill="currentColor" class="bi bi-file-earmark-person" viewBox="0 0 16 16">
+                                <path d="M11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                                <path
+                                    d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2v9.255S12 12 8 12s-5 1.755-5 1.755V2a1 1 0 0 1 1-1h5.5v2z" />
+                            </svg></a>
+                    </li>
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <button type="button" class="btn btn-dark py-0 btn-sm" data-bs-toggle="tooltip"
+                            data-bs-placement="bottom" title="scroll to FCFS"><a class="nav-link"
+                                href="#FCFS">FCFS</a></button>
+                        <button type="button" class="btn btn-dark btn-sm p-2px" data-bs-toggle="tooltip"
+                            data-bs-placement="bottom" title="scroll to SSTF"><a class="nav-link"
+                                href="#SSTF">SSTF</a></button>
+                        <button type="button" class="btn btn-dark btn-sm p-2px" data-bs-toggle="tooltip"
+                            data-bs-placement="bottom" title="scroll to SCAN"><a class="nav-link"
+                                href="#SCAN">SCAN</a></button>
+                        <button type="button" class="btn btn-dark btn-sm p-2px" data-bs-toggle="tooltip"
+                            data-bs-placement="bottom" title="scroll to C-SCAN"><a class="nav-link"
+                                href="#C-SCAN">C-SCAN</a></button>
+                        <button type="button" class="btn btn-dark btn-sm p-2px" data-bs-toggle="tooltip"
+                            data-bs-placement="bottom" title="scroll to LOOK"><a class="nav-link"
+                                href="#LOOK">LOOK</a></button>
+                        <button type="button" class="btn btn-dark btn-sm p-2px" data-bs-toggle="tooltip"
+                            data-bs-placement="bottom" title="scroll to C-LOOK"><a class="nav-link"
+                                href="#C-LOOK">C-LOOK</a></button>
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- image -->
+
+    <div id="carouselExampleControls " class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active contan">
+                <img src="img1.png" id="img" class="d-block w-100 " alt="img">
+                <div class="centered">DISK SCHEDULING ALGORITHMS</div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <br>
+    <br>
+
+    <!-- section -->
+
+    <div class="container section">
+
+        <!-- intro -->
+
+        <div class=" details container">
+            <div class="container">
+                <h2>WHAT IS DISK SCHEDULING?</h2>
+                <img class=" disk" src="/img/img_of_disk.jpg" alt="" width="100%" height="100%">
+            </div>
+            <div class="container">
+                <p>Disk scheduling is done by operating systems to schedule I/O requests arriving for the disk. Disk
+                    scheduling is also known as I/O scheduling.</p>
+
+
+                <p>Disk scheduling is important because:</p>
+                <ul>
+                    <li class="container">Multiple I/O requests may arrive by different processes and only one I/O
+                        request can
+                        be served at a time by the disk controller. Thus other I/O requests need to wait in the
+                        waiting
+                        queue and need to be scheduled.</li>
+                    <li class="container">Two or more request may be far from each other so can result in greater
+                        disk
+                        arm
+                        movement.</li>
+                    <li class="container">Hard drives are one of the slowest parts of the computer system and thus
+                        need
+                        to be
+                        accessed in an efficient manner.</li>
+                </ul>
+                <span id="dots">...</span>
+                <span id="more">
+
+
+                    <div class="container">
+                        <p>There are many Disk Scheduling Algorithms but before discussing them let’s have a quick look
+                            at
+                            some of
+                            the important terms:</p>
+                        <ul>
+                            <li>
+                                <p>Seek Time </p>
+                                : Seek time is the time taken to locate the disk arm to a specified track where the data
+                                is
+                                to be
+                                read or write. So the disk scheduling algorithm that gives minimum average seek time is
+                                better.
+                            </li>
+                            <li>
+                                <p>Rotational Latency </p>
+                                : Rotational Latency is the time taken by the desired sector of disk to rotate into a
+                                position so
+                                that it can access the read/write heads. So the disk scheduling algorithm that gives
+                                minimum
+                                rotational latency is better.
+                            </li>
+                            <li>
+                                <p>Transfer Time </p>
+                                : Transfer time is the time to transfer the data. It depends on the rotating speed of
+                                the
+                                disk and
+                                number of bytes to be transferred.
+                            </li>
+                            <li>
+                                <p>Disk Access Time </p>
+                                : Disk Access Time is: Seek Time + Rotational Latency + Transfer Time
+                            </li>
+                            <img src="/img/access_time.jpeg" alt="" width="100%">
+                            <li>
+                                <p>Disk Response Time </p>
+                                : Response Time is the average of time spent by a request waiting to perform its I/O
+                                operation.
+                                Average Response time is the response time of the all requests. Variance Response Time
+                                is
+                                measure of
+                                how individual request are serviced with respect to average
+                                response time. So the disk scheduling algorithm that gives minimum variance response
+                                time is
+                                better.
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="info4 font_size">
+                        <p>Disk Scheduling Algorithms</p>
+                        <ul>
+                            <li>
+                                <p>FCFS </p>
+                                : FCFS is the simplest of all the Disk Scheduling Algorithms. In FCFS, the requests are
+                                addressed in
+                                the order they arrive in the disk queue.
+                            </li>
+                            <li>
+                                <p>SSTF </p>
+                                : In SSTF (Shortest Seek Time First), requests having shortest seek time are executed
+                                first.
+                                So, the
+                                seek time of every request is calculated in advance in the queue and then they are
+                                scheduled
+                                according to their calculated seek time. As a result, the
+                                request near the disk arm will get executed first. SSTF is certainly an improvement over
+                                FCFS as it
+                                decreases the average response time and increases the throughput of system.
+                            </li>
+                            <li>
+                                <p>SCAN </p>
+                                : In SCAN algorithm the disk arm moves into a particular direction and services the
+                                requests
+                                coming
+                                in its path and after reaching the end of disk, it reverses its direction and again
+                                services
+                                the
+                                request arriving in its path. So, this algorithm works
+                                as an elevator and hence also known as elevator algorithm.
+                            </li>
+                            <li>
+                                <p>C-SCAN </p>
+                                : In SCAN algorithm, the disk arm again scans the path that has been scanned, after
+                                reversing its
+                                direction. So, it may be possible that too many requests are waiting at the other end or
+                                there may
+                                be zero or few requests pending at the scanned area. These
+                                situations are avoided in C-SCAN algorithm in which the disk arm instead of reversing
+                                its
+                                direction
+                                goes to the other end of the disk and starts servicing the requests from there. So, the
+                                disk
+                                arm
+                                moves in a circular fashion
+                                and this algorithm is also similar to SCAN algorithm and hence it is known as C-SCAN
+                                (Circular
+                                SCAN).
+                            </li>
+                            <li>
+                                <p>LOOK </p>
+                                : It is similar to the SCAN disk scheduling algorithm except for the difference that the
+                                disk arm in
+                                spite of going to the end of the disk goes only to the last request to be serviced in
+                                front
+                                of the
+                                head and then reverses its direction from there only.
+                                Thus it prevents the extra delay which occurred due to unnecessary traversal to the end
+                                of
+                                the disk.
+                            </li>
+                            <li>
+                                <p>C-LOOK </p>
+                                : As LOOK is similar to SCAN algorithm, in similar way, C-LOOK is similar to C-SCAN disk
+                                scheduling
+                                algorithm. In C-LOOK, the disk arm in spite of going to the end goes only to the last
+                                request to be
+                                serviced in front of the head and then from there goes
+                                to the other end’s last request. Thus, it also prevents the extra delay which occurred
+                                due
+                                to
+                                unnecessary traversal to the end of the disk.
+                            </li>
+                        </ul>
+                    </div>
+                </span>
+                <button onclick="myFunction()" id="myBtn" type="button" class="btn btn-info">Read more</button>
+            </div>
+        </div>
+
+        <br>
+        <br>
+
+        <!-- fcfs -->
+        <div class="details container">
+            <a class="tit" id="FCFS" href="#look">FIRST COME FIRST SERVE</a>
+            <hr>
+            FCFS is the simplest disk scheduling algorithm. As the name suggests, this algorithm entertains requests in
+            the order they arrive in the disk queue. The algorithm looks very fair and there is no starvation (all
+            requests are
+            serviced
+            sequentially) but generally, it does not provide the fastest service.
+
+            <br>
+            <br>
+            <!-- application -->
+            <h3>Application</h3>
+            <ul>
+                <li>We have an array of disk track numbers and initial head position, our task is to find the total
+                    number of seek
+                    operations done to access all the requested tracks if First Come First Serve (FCFS) disk scheduling
+                    algorithm is
+                    used.</li>
+            </ul>
+
+
+            <br>
+
+            <h3>Algorithm</h3>
+            <ul>
+                <li>
+                    <p>Step 1 :</p>
+                    Let Request array represents an array storing indexes of tracks that have been requested in
+                    ascending order of
+                    their time of arrival. "head" is the position of disk head.
+                </li>
+                <li>
+                    <p>Step 2 :</p>
+                    Let us one by one take the tracks in default order and calculate the absolute distance of the track
+                    from the
+                    head.
+                </li>
+                <li>
+                    <p>Step 3 :</p>
+                    Increment the total seek count with this distance.
+                </li>
+                <li>
+                    <p>Step 4 :</p>
+                    Currently serviced track position now becomes the new head position.
+                </li>
+                <li>
+                    <p>Step 5 :</p>
+                    Go to step 2 until all tracks in request array have not been serviced.
+                </li>
+            </ul>
+            <span id="dots1">...</span>
+            <span id="more1">
+                <div class="container">
+                    <h3>Advantages Of First Come First Serve (FCFS)</h3>
+                    <ul>
+                        <li>First Come First Serve algorithm has a very simple logic, it executes the process requests
+                            one
+                            by one in the
+                            sequence they arrive.</li>
+                        <li>Thus, First Come First Serve is very simple and easy to understand and implement.</li>
+                        <li>In FCFS eventually, each and every process gets a chance to execute, so no starvation occur.
+                        </li>
+                    </ul>
+                </div>
+                <div class="container">
+                    <h3>Disadvantages Of First Come First Serve (FCFS)</h3>
+                    <ul>
+                        <li>This scheduling algorithm is nonpreemptive, which means the process can not be stopped in
+                            middle
+                            of
+                            execution and will run it is full course.</li>
+                        <li>FCFS being a nonpreemptive scheduling algorithm, the short processes which are at the back
+                            of
+                            the queue have
+                            to wait for the long process at the front to finish.</li>
+                        <li>The throughput of FCFS is not very efficient.</li>
+                        <li>FCFS is implemented on small systems only where input-output efficiency is not of utmost
+                            importance.</li>
+                    </ul>
+                </div>
+                <div class="container">
+                    <h3>Example </h3>
+                    <ul class="container">
+                        <li>
+                            <p>Input : </p>
+                        </li>
+                        <li>Request sequence = {176, 79, 34, 60, 92, 11, 41, 114}</li>
+                        <li>Initial head position = 50</li>
+                    </ul>
+                    <ul class="container">
+                        <li>The following chart shows the sequence in which requested tracks are serviced using FCFS.
+                        </li>
+                        <li><img src="/img/fcfs-1.jpg" alt=""></li>
+                        <li>Therefor, the total seek count is calculated as : </li>
+                        <li>= (176-50) + (176-79) + (79-34) + (60-34) + (92-60) + (92-11) + (41-11) + (114-41)</li>
+                        <li>= 510</li>
+                    </ul>
+                    <ul class="container">
+                        <li>
+                            <p>Output :</p>
+                        </li>
+                        <li>Total number of seek operations = 510</li>
+                        <li>Seek sequence = {176, 79, 34, 60, 92, 11, 41, 114}</li>
+                    </ul>
+                </div>
+                <div class="container">
+                    <div class="btn">
+                        <button type="button" class="btn btn-primary"><a id="a"
+                                href="Simulate.html">Simulate</a></button>
+                    </div>
+                </div>
+            </span>
+            <button onclick="myFunction1()" id="myBtn1" type="button" class="btn btn-info">Read more</button>
+
+        </div>
+        <br>
+        <br>
+        <!-- SSTF -->
+        <div class="details container">
+            <a class="tit" id="SSTF" href="simulate.html">SHORTEST SEEK TIME FIRST</a>
+            <hr>
+            <div class="container">
+                <ul>
+                    <li>Shortest seek time first (SSTF) algorithm selects the disk I/O reqst which requires the
+                        least disk arm
+                        movement from its current position regardless of the direction. It reduces the total seek
+                        time as
+                        compared to FCFS. It allows the
+                        head to move the closest track in the service queue.</li>
+                </ul>
+                <div class="container">
+                    <h3>Application</h3>
+                    <ul>
+                        <li>We have an array of disk track numbers and initial head position, our task is to find the
+                            total number
+                            of seek operations done to access all the requested tracks if Shortest Seek Time First
+                            (SSTF) is a disk
+                            scheduling algorithm is
+                            used.
+                        </li>
+                    </ul>
+                </div>
+                <div class="container">
+                    <h3>Algorithm</h3>
+                    <ul>
+                        <li>
+                            <p>Step 1 :</p>
+                            Let Request array represents an array storing indexes of tracks that have been requested.
+                            ‘head’ is the
+                            position of disk head.
+                        </li>
+                        <li>
+                            <p>Step 2 :</p>
+                            Find the positive distance of all tracks in the request array from head.
+                        </li>
+                        <li>
+                            <p>Step 3 :</p>
+                            Find a track from requested array which has not been accessed/serviced yet and has minimum
+                            distance from
+                            head.
+                        </li>
+                        <li>
+                            <p>Step 4 :</p>
+                            Increment the total seek count with this distance.
+                        </li>
+                        <li>
+                            <p>Step 5 :</p>
+                            Currently serviced track position now becomes the new head position.
+                        </li>
+                        <li>
+                            <p>Step 6 :</p>
+                            Go to step 2 until all tracks in request array have not been serviced.
+                        </li>
+                    </ul>
+                </div>
+                <span id="dots2">...</span>
+                <span id="more2">
+                    <div class="container">
+                        <h3>Advantages Of Shortest Seek Time First (SSTF)</h3>
+                        <ul>
+                            <li>Better performance than FCFS scheduling algorithm.</li>
+                            <li>It provides better throughput.</li>
+                            <li>This algorithm is used in Batch Processing system where throughput is more important.
+                            </li>
+                            <li>It has less average response and waiting time.</li>
+                        </ul>
+                    </div>
+                    <div class="container">
+                        <h3>Disadvantages Of Shortest Seek Time First (SSTF)</h3>
+                        <ul>
+                            <li>Starvation is possible for some requests as it favours easy to reach request and ignores
+                                the
+                                far away
+                                processes.</li>
+                            <li>Their is lack of predictability because of high variance of response time.</li>
+                            <li>Switching direction slows things down.</li>
+                        </ul>
+                    </div>
+                    <div class="container">
+                        <h3>Example </h3>
+                        <ul class="container">
+                            <li>
+                                <p>Input : </p>
+                            </li>
+                            <li>Request sequence = {176, 79, 34, 60, 92, 11, 41, 114}</li>
+                            <li>Initial head position = 50</li>
+                        </ul>
+                        <ul class="container">
+                            <li>The following chart shows the sequence in which requested tracks are serviced using
+                                SSTF.
+                            </li>
+                            <li><img src="/img/SSTF-1.png" alt=""></li>
+                            <li>Therefor, the total seek count is calculated as : </li>
+                            <li>= (50-41) + (41-34) + (34-11) + (60-11) + (79-60) + (92-79) + (114-92) + (176-114)</li>
+                            <li>= 204</li>
+                        </ul>
+                        <ul class="container">
+                            <li>
+                                <p>Output :</p>
+                            </li>
+                            <li>Total number of seek operations = 204</li>
+                            <li>Seek sequence = {50, 41, 34, 11, 60, 79, 92, 114, 176}</li>
+                        </ul>
+                    </div>
+                    <div class="container">
+                        <div class="btn">
+                            <button type="button" class="btn btn-primary"><a id="a"
+                                    href="Simulate.html">Simulate</a></button>
+                        </div>
+                    </div>
+            </div>
+            </span>
+            <button onclick="myFunction2()" id="myBtn2" type="button" class="btn btn-info">Read more</button>
+
+
+        </div>
+        <br>
+        <br>
+
+        <!-- SCAN -->
+        <div class="details container">
+            <a class="tit" id="SCAN" href="simulate.html">SCAN</a>
+            <div class="container">
+                <ul>
+                    <li>In SCAN disk scheduling algorithm, head starts from one end of the disk and moves towards
+                        the other end,
+                        servicing requests in between one by one and reach the other end. Then the direction of the
+                        head is
+                        reversed and the process continues
+                        as head continuously scan back and forth to access the disk. So, this algorithm works as an
+                        elevator and
+                        hence also known as the elevator algorithm.</li>
+                </ul>
+                <div class="container">
+                    <h3>Application</h3>
+                    <ul>
+                        <li>We have an array of disk track numbers and initial head position, our task is to find the
+                            total number
+                            of seek operations done to access all the requested tracks if SCAN disk scheduling algorithm
+                            is used.
+                        </li>
+                    </ul>
+                </div>
+                <div class="container">
+                    <h3>Algorithm</h3>
+                    <ul>
+                        <li>
+                            <p>Step 1 :</p>
+                            Let Request array represents an array storing indexes of tracks that have been requested in
+                            ascending
+                            order of their time of arrival. "head" is the position of disk head.
+                        </li>
+                        <li>
+                            <p>Step 2 :</p>
+                            Let direction represents whether the head is moving towards left or right.
+                        </li>
+                        <li>
+                            <p>Step 3 :</p>
+                            In the direction in which head is moving service all tracks one by one.
+                        </li>
+                        <li>
+                            <p>Step 4 :</p>
+                            Calculate the absolute distance of the track from the head.
+                        </li>
+                        <li>
+                            <p>Step 5 :</p>
+                            Increment the total seek count with this distance.
+                        </li>
+                        <li>
+
+                            <p>Step 6 :</p>
+                            Currently serviced track position now becomes the new head position.
+                        </li>
+                        <li>
+                            <p>Step 7 :</p>
+                            Go to step 3 until we reach at one of the ends of the disk.
+                        </li>
+                        <li>
+                            <p>Step 8 :</p>
+                            If we reach at the end of the disk reverse the direction and go to step 2 until all tracks
+                            in request
+                            array have not been serviced.
+                        </li>
+                    </ul>
+
+                </div>
+                <span id="dots3">...</span>
+                <span id="more3">
+                    <div class="container">
+                        <h3>Advantages Of SCAN (Elevator)</h3>
+                        <ul>
+                            <li>This algorithm is simple and easy to understand.</li>
+                            <li>SCAN algorithm have no starvation.</li>
+                            <li>This algorithm is better than FCFS Scheduling algorithm.</li>
+                        </ul>
+                    </div>
+                    <div class="container">
+                        <h3>Disadvantages Of SCAN (Elevator)</h3>
+                        <ul>
+                            <li>More complex algorithm to implement.</li>
+                            <li>This algorithm is not fair because it cause long waiting time for the cylinders just
+                                visited
+                                by the
+                                head.</li>
+                            <li>It causes the head to move till the end of the disk in this way the requests arriving
+                                ahead
+                                of the arm
+                                position would get immediate service but some other requests that arrive behind the arm
+                                position will
+                                have to wait for the request
+                                to complete.</li>
+                        </ul>
+                    </div>
+                    <div class="container">
+                        <h3>Example </h3>
+                        <ul class="container">
+                            <li>
+                                <p>Input : </p>
+                            </li>
+                            <li>Request sequence = {176, 79, 34, 60, 92, 11, 41, 114}</li>
+                            <li>Initial head position = 50</li>
+                            <li>Direction = left (We are moving from right to left)</li>
+                        </ul>
+                        <ul class="container">
+                            <li>The following chart shows the sequence in which requested tracks are serviced using
+                                SCAN.
+                            </li>
+                            <li><img src="/img/scan-1.jpg" alt=""></li>
+                            <li>Therefor, the total seek count is calculated as : </li>
+                            <li>= (50-41) + (41-34) + (34-11) + (11-0) + (60-0) + (79-60) + (92-79) + (114-92) +
+                                (176-114)
+                            </li>
+                            <li>= 226</li>
+                        </ul>
+                        <ul class="container">
+                            <li>
+                                <p>Output :</p>
+                            </li>
+                            <li>Total number of seek operations = 226</li>
+                            <li>Seek sequence = {41, 34, 11, 0, 60, 79, 92, 114, 176}</li>
+                        </ul>
+                    </div>
+                    <div class="container">
+                        <div class="btn">
+                            <button type="button" class="btn btn-primary"><a id="a"
+                                    href="Simulate.html">Simulate</a></button>
+                        </div>
+                    </div>
+                </span>
+                <button onclick="myFunction3()" id="myBtn3" type="button" class="btn btn-info">Read more</button>
+            </div>
+
+        </div>
+        <br>
+        <br>
+        <!-- C-SCAN -->
+        <div class="details container">
+            <a class="tit" id="C-SCAN" href="simulate.html">Circular SCAN (C-SCAN)</a>
+            <div class="container">
+                <hr>
+                <ul>
+                    <li>The circular SCAN (C-SCAN) scheduling algorithm is a modified version of the SCAN disk
+                        scheduling
+                        algorithm that deals with the inefficiency of the SCAN algorithm by servicing the requests
+                        more
+                        uniformly. Like SCAN (Elevator Algorithm)
+                        C-SCAN moves the head from one end servicing all the requests to the other end. However, as
+                        soon as the
+                        head reaches the other end, it immediately returns to the beginning of the disk without
+                        servicing any
+                        requests on the return
+                        trip (see chart below) and starts servicing again once reaches the beginning. This is also
+                        known as the
+                        “Circular Elevator Algorithm” as it essentially treats the cylinders as a circular list that
+                        wraps
+                        around from the final cylinder
+                        to the first one.</li>
+                </ul>
+                <div class="container">
+                    <h3>Application</h3>
+                    <ul>
+                        <li>We have an array of disk track numbers and initial head position, our task is to find the
+                            total number
+                            of seek operations done to access all the requested tracks if a C-SCAN disk scheduling
+                            algorithm is
+                            used.</li>
+                    </ul>
+                </div>
+                <div class="container">
+                    <h3>Algorithm</h3>
+                    <ul>
+                        <li>
+                            <p>Step 1 :</p>
+                            Let Request array represents an array storing indexes of tracks that have been requested in
+                            ascending
+                            order of their time of arrival. "head" is the position of disk head.
+                        </li>
+                        <li>
+                            <p>Step 2 :</p>
+                            The head services only in the right direction from 0 to the size of the disk.
+                        </li>
+                        <li>
+                            <p>Step 3 :</p>
+                            While moving in the left direction do not service any of the tracks.
+                        </li>
+                        <li>
+                            <p>Step 4 :</p>
+                            When we reach the beginning(left end) reverse the direction.
+                        </li>
+                        <li>
+                            <p>Step 5 :</p>
+                            While moving in the right direction it services all tracks one by one.
+                        </li>
+                    </ul>
+                </div>
+                <span id="dots4">...</span>
+                <span id="more4">
+                    <div class="container">
+                        <ul>
+                            <li>
+                                <p>Step 6 :</p>
+                                While moving in the right direction calculate the absolute distance of the track from
+                                the
+                                head.
+                            </li>
+                            <li>
+                                <p>Step 7 :</p>
+                                Increment the total seek count with this distance.
+                            </li>
+                            <li>
+                                <p>Step 8 :</p>
+                                Currently serviced track position now becomes the new head position.
+                            </li>
+                            <li>
+                                <p>Step 9 :</p>
+                                Go to step 6 until we reach the right end of the disk.
+                            </li>
+                            <li>
+                                <p>Step 10 :</p>
+                                If we reach the right end of the disk reverse the direction and go to step 3 until all
+                                tracks in the
+                                request array have not been serviced.
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="container">
+                        <h3>Advantages Of Circular SCAN (C-SCAN)</h3>
+                        <ul>
+                            <li>Works well with moderate to heavy loads.</li>
+                            <li>It provides better response time and uniform waiting time.</li>
+                        </ul>
+                    </div>
+                    <div class="container">
+                        <h3>Disadvantages Of Circular SCAN (C-SCAN)</h3>
+                        <ul>
+                            <li>May not be fair to service requests for tracks at the extreme end.</li>
+                            <li>It has more seek movements as compared to the SCAN Algorithm.</li>
+                        </ul>
+                    </div>
+                    <div class="container">
+                        <h3>Example </h3>
+                        <ul class="container">
+                            <li>
+                                <p>Input : </p>
+                            </li>
+                            <li>Request sequence = {176, 79, 34, 60, 92, 11, 41, 114}</li>
+                            <li>Initial head position = 50</li>
+                            <li>Direction = Right (We are moving from left to right)</li>
+                        </ul>
+                        <ul class="container">
+                            <li>The following chart shows the sequence in which requested tracks are serviced using
+                                C-SCAN.
+                            </li>
+                            <li><img src="/img/c-scan.png" alt=""></li>
+                            <li>Therefor, the total seek count is calculated as : </li>
+                            <li>= (60-50) + (79-60) + (92-79) + (114-92) + (176-114) + (199-176) + (199-0) + (11-0) +
+                                (34-11) + (41-34)
+                            </li>
+                            <li>= 389</li>
+                        </ul>
+                        <ul class="container">
+                            <li>
+                                <p>Output :</p>
+                            </li>
+                            <li>Total number of seek operations = 389</li>
+                            <li>Seek sequence = {60, 79, 92, 114, 176, 199, 0, 11, 34, 41}</li>
+                        </ul>
+                    </div>
+                    <div class="container">
+                        <div class="btn">
+                            <button type="button" class="btn btn-primary"><a id="a"
+                                    href="Simulate.html">Simulate</a></button>
+                        </div>
+                    </div>
+                </span>
+                <button onclick="myFunction4()" id="myBtn4" type="button" class="btn btn-info">Read more</button>
+
+            </div>
+
+        </div>
+        <br>
+        <br>
+
+        <!-- LOOK -->
+        <div class="details container">
+            <a class="tit " id="LOOK" href="simulate.html">LOOK</a>
+            <hr>
+            <div class="container">
+                <ul>
+                    <li>LOOK is the advanced version of SCAN (elevator) disk scheduling algorithm which gives
+                        slightly better
+                        seek time than any other algorithm in the hierarchy (FCFS->SRTF->SCAN->C-SCAN->LOOK). The
+                        LOOK algorithm
+                        services request similarly
+                        as SCAN algorithm meanwhile it also “looks” ahead as if there are more tracks that are
+                        needed to be
+                        serviced in the same direction. If there are no pending requests in the moving direction the
+                        head
+                        reverses the direction and start
+                        servicing requests in the opposite direction. The main reason behind the better performance
+                        of LOOK
+                        algorithm in comparison to SCAN is because in this algorithm the head is not allowed to move
+                        till the
+                        end of the disk.</li>
+                </ul>
+                <div class="container">
+                    <h3>Application</h3>
+                    <ul>
+                        <li>We have an array of disk track numbers and initial head position, our task is to find the
+                            total number
+                            of seek operations done to access all the requested tracks if LOOK disk scheduling algorithm
+                            is used.
+                            Also, write a program to find
+                            the seek sequence using LOOK disk scheduling algorithm.</li>
+                    </ul>
+                </div>
+                <div class="container">
+                    <h3>Algorithm</h3>
+                    <ul>
+                        <li>
+                            <p>Step 1 :</p>
+                            Let Request array represents an array storing indexes of tracks that have been requested in
+                            ascending
+                            order of their time of arrival. "head" is the position of disk head.
+                        </li>
+                        <li>
+                            <p>Step 2 :</p>
+                            The initial direction in which head is moving is given and it services in the same
+                            direction.
+                        </li>
+                        <li>
+                            <p>Step 3 :</p>
+                            The head services all the requests one by one in the direction head is moving.
+                        </li>
+                        <li>
+                            <p>Step 4 :</p>
+                            The head continues to move in the same direction until all the request in this direction are
+                            finished.
+                        </li>
+                    </ul>
+                </div>
+                <span id="dots5">...</span>
+                <span id="more5">
+                    <div class="container">
+                        <ul>
+                            <li>
+                                <p>Step 5 :</p>
+                                While moving in this direction calculate the absolute distance of the track from the
+                                head.
+                            </li>
+                            <li>
+                                <p>Step 6 :</p>
+                                Increment the total seek count with this distance.
+                            </li>
+                            <li>
+                                <p>Step 7 :</p>
+                                Currently serviced track position now becomes the new head position.
+                            </li>
+                            <li>
+                                <p>Step 8 :</p>
+                                Go to step 5 until we reach at last request in this direction.
+                            </li>
+                            <li>
+                                <p>Step 9 :</p>
+                                If we reach where no requests are needed to be serviced in this direction reverse the
+                                direction and go
+                                to step 3 until all tracks in request array have not been serviced.
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="container">
+                        <h3>Advantages Of LOOK</h3>
+                        <ul>
+                            <li>If there are no requests left to be services the Head will not move to the end of the
+                                disk
+                                unlike SCAN
+                                algorithm.</li>
+                            <li>Better performance is provided compared to SCAN Algorithm.</li>
+                            <li>Starvation is avoided in LOOK scheduling algorithm.</li>
+                            <li>Low variance is provided in waiting time and response time.</li>
+                        </ul>
+                    </div>
+                    <div class="container">
+                        <h3>Disadvantages Of LOOK</h3>
+                        <ul>
+                            <li>Overhead of finding the end requests is present.</li>
+                            <li>Cylinders which are just visited by Head have to wait for long time.</li>
+                        </ul>
+                    </div>
+                    <div class="container">
+                        <h3>Example </h3>
+                        <ul class="container">
+                            <li>
+                                <p>Input : </p>
+                            </li>
+                            <li>Request sequence = {176, 79, 34, 60, 92, 11, 41, 114}</li>
+                            <li>Initial head position = 50</li>
+                            <li>Direction = right (We are moving from left to right)</li>
+                        </ul>
+                        <ul class="container">
+                            <li>The following chart shows the sequence in which requested tracks are serviced using
+                                LOOK.
+                            </li>
+                            <li><img src="/img/look-1.png" alt=""></li>
+                            <li>Therefor, the total seek count is calculated as : </li>
+                            <li>= (60-50) + (79-60) + (92-79) + (114-92) + (176-114) + (176-41) + (41-34) + (34-11)</li>
+                            <li>= 291</li>
+                        </ul>
+                        <ul class="container">
+                            <li>
+                                <p>Output :</p>
+                            </li>
+                            <li>Total number of seek operations = 291</li>
+                            <li>Seek sequence = {60, 79, 92, 114, 176, 41, 34, 11}</li>
+                        </ul>
+                    </div>
+                    <div class="container">
+                        <div class="btn">
+                            <button type="button" class="btn btn-primary"><a id="a"
+                                    href="Simulate.html">Simulate</a></button>
+                        </div>
+                    </div>
+                </span>
+                <button onclick="myFunction5()" id="myBtn5" type="button" class="btn btn-info">Read more</button>
+            </div>
+
+        </div>
+
+        <br>
+        <br>
+        <!-- C-LOOK -->
+        <div class="details container">
+            <a class="tit" id="C-LOOK" href="simulate.html">Circular LOOK (C-LOOK)</a>
+            <hr>
+            <div class="container">
+                <ul>
+                    <li>C-LOOK is an enhanced version of both SCAN as well as LOOK disk scheduling algorithms. This
+                        algorithm
+                        also uses the idea of wrapping the tracks as a circular cylinder as C-SCAN algorithm but the
+                        seek time
+                        is better than C-SCAN algorithm.
+                        We know that C-SCAN is used to avoid starvation and services all the requests more
+                        uniformly, the same
+                        goes for C-LOOK. In this algorithm, the head services requests only in one direction(either
+                        left or
+                        right) until all the requests
+                        in this direction are not serviced and then jumps back to the farthest request on the other
+                        direction
+                        and service the remaining requests which gives a better uniform servicing as well as avoids
+                        wasting seek
+                        time for going till
+                        the end of the disk.</li>
+                </ul>
+                <div class="container">
+                    <h3>Application</h3>
+                    <ul>
+                        <li>We have an array of disk track numbers and initial head position, our task is to find the
+                            total number
+                            of seek operations done to access all the requested tracks if C-LOOK disk scheduling
+                            algorithm is used.
+                            Also, write a program to
+                            find the seek sequence using C-LOOK disk scheduling algorithm.</li>
+                    </ul>
+                </div>
+                <span id="dots6">...</span>
+                <span id="more6">
+                    <div class="container">
+                        <h3>Algorithm</h3>
+                        <ul>
+                            <li>
+                                <p>Step 1 :</p>
+                                Let Request array represents an array storing indexes of the tracks that have been
+                                requested
+                                in
+                                ascending order of their time of arrival and head is the position of the disk head.
+                            </li>
+                            <li>
+                                <p>Step 2 :</p>
+                                The initial direction in which the head is moving is given and it services in the same
+                                direction.
+                            </li>
+                            <li>
+                                <p>Step 3 :</p>
+                                The head services all the requests one by one in the direction it is moving.
+                            </li>
+                            <li>
+                                <p>Step 4 :</p>
+                                The head continues to move in the same direction until all the requests in this
+                                direction
+                                have been
+                                serviced.
+                            </li>
+                            <li>
+                                <p>Step 5 :</p>
+                                While moving in this direction, calculate the absolute distance of the tracks from the
+                                head.
+                            </li>
+                            <li>
+                                <p>Step 6 :</p>
+                                Increment the total seek count with this distance.
+                            </li>
+                            <li>
+                                <p>Step 7 :</p>
+                                Currently serviced track position now becomes the new head position.
+                            </li>
+                            <li>
+                                <p>Step 8 :</p>
+                                Go to step 5 until we reach the last request in this direction.
+                            </li>
+                            <li>
+                                <p>Step 9 :</p>
+                                If we reach the last request in the current direction then reverse the direction and
+                                move
+                                the head in
+                                this direction until we reach the last request that is needed to be serviced in this
+                                direction without
+                                servicing the intermediate requests.
+                            </li>
+                            <li>
+                                <p>Step 10 :</p>
+                                Reverse the direction and go to step 3 until all the requests have not been serviced.
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="container">
+                        <h3>Advantages Of Circular LOOK (C-LOOK)</h3>
+                        <ul>
+                            <li>In C-LOOK the head does not have to move till the end of the disk if there are no
+                                requests
+                                to be
+                                serviced.</li>
+                            <li>There is less waiting time for the cylinders which are just visited by the head in
+                                C-LOOK.
+                            </li>
+                            <li>C-LOOK provides better performance when compared to LOOK Algorithm.</li>
+                            <li>Starvation is avoided in C-LOOK.</li>
+                            <li>Low variance is provided in waiting time and response time.</li>
+                        </ul>
+                    </div>
+                    <div class="container">
+                        <h3>Disadvantages Of Circular LOOK (C-LOOK)</h3>
+                        <ul>
+                            <li>In C-LOOK an overhead of finding the end requests is present.</li>
+                        </ul>
+                    </div>
+                    <div class="container">
+                        <h3>Example </h3>
+                        <ul class="container">
+                            <li>
+                                <p>Input : </p>
+                            </li>
+                            <li>Request sequence = {176, 79, 34, 60, 92, 11, 41, 114}</li>
+                            <li>Initial head position = 50</li>
+                            <li>Direction = right (We are moving from left to right)</li>
+                        </ul>
+                        <ul class="container">
+                            <li>The following chart shows the sequence in which requested tracks are serviced using
+                                LOOK.
+                            </li>
+                            <li><img src="/img/look-1.png" alt=""></li>
+                            <li>Therefor, the total seek count is calculated as : </li>
+                            <li>= = (60 – 50) + (79 – 60) + (92 – 79) + (114 – 92) + (176 – 114) + (176 – 11) + (34 –
+                                11) +
+                                (41 – 34)
+                            </li>
+                            <li>= 321</li>
+                        </ul>
+                        <ul class="container">
+                            <li>
+                                <p>Output :</p>
+                            </li>
+                            <li>Total number of seek operations = 156</li>
+                            <li>Seek sequence = {60, 79, 92, 114, 176, 11, 34, 41}</li>
+                        </ul>
+                    </div>
+                    <div class="container">
+                        <div class="btn">
+                            <button type="button" class="btn btn-primary"><a id="a"
+                                    href="Simulate.html">Simulate</a></button>
+                        </div>
+                    </div>
+                </span>
+                <button onclick="myFunction6()" id="myBtn6" type="button" class="btn btn-info">Read more</button>
+            </div>
+
+        </div>
+
+        <br>
+        <br>
+    </div>
+
+
+    <!-- footer -->
+    <footer class="page-footer font-small mdb-color darken-3 pt-4">
+
+        <!-- Footer Elements -->
+        <div class="container">
+
+            <!--Grid row-->
+            <div class="row d-flex  justify-content-lg-evenly">
+
+                <!--Grid column-->
+                <div class="col-md-6">
+
+                    <!-- Video -->
+                    <div class="embed-responsive embed-responsive-16by9 mb-4">
+                        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/oRgX6ixIipU"
+                            allowfullscreen></iframe>
+                    </div>
+
+                </div>
+                <!--Grid column-->
+
+            </div>
+            <!--Grid row-->
+
+        </div>
+        <!-- Footer Elements -->
+
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3">© 2022 Copyright:
+            <a id="a1" href="disk.html"> DiskAlgo.com</a>
+        </div>
+        <!-- Copyright -->
+
+    </footer>
+    <!-- Footer -->
+
+
+
+
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="myscript.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+
+    </body>
+
+</html>
